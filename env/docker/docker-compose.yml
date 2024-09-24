@@ -1,0 +1,33 @@
+version: "3.8"
+
+name: tg_news_bot
+
+networks:
+  tg_news_bot_net:
+    name: tg_news_bot_net
+
+services:
+  selenium:
+    hostname: "${SELENIUM_SERVICE_NAME}"
+    image: selenium/standalone-chrome-debug
+    container_name: selenium_chrome
+    networks:
+      - tg_news_bot_net
+    environment:
+      SE_OPTS: "-port 4321"
+    volumes:
+      - /dev/shm:/dev/shm
+    ports:
+      - 80:80
+      - 4321:4321
+      - 5900:5900
+
+  tg_news_bot_app:
+    container_name: tg_news_bot_app
+    depends_on:
+      - selenium
+    build: "./app"
+    environment:
+      - SELENIUM_SERVICE_NAME=${SELENIUM_SERVICE_NAME}
+    networks:
+      - tg_news_bot_net

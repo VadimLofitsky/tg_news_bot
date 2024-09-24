@@ -24,16 +24,12 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 
     implementation("io.github.kotlin-telegram-bot.kotlin-telegram-bot:telegram:5.0.0")
-    implementation("io.github.cdimascio:java-dotenv:5.2.2")
     implementation("org.seleniumhq.selenium:selenium-server:3.141.59")
-
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
 tasks.bootJar {
     mainClass.set("lofitsky.misc.news_bot.NewsBotApp")
     enabled = true
-    exclude("**/application-test.yml")
 }
 
 tasks.bootRun {
@@ -46,8 +42,4 @@ tasks.withType<KotlinCompile> {
         freeCompilerArgs = listOf("-Xjsr305=strict")
         jvmTarget = "11"
     }
-}
-
-tasks.withType<Test> {
-    useJUnitPlatform()
 }

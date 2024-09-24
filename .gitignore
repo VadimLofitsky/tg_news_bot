@@ -4,6 +4,8 @@ build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
+src/main/resources/tg_bot.yml
+env/docker/app/tg_bot.yml
 
 ### STS ###
 .apt_generated
@@ -36,3 +38,9 @@ out/
 ### VS Code ###
 .vscode/
 /gradle/
+/ffmpeg_e.log
+/ffmpeg_o.log
+/env/local/local.yml
+/env/local/tg_bot.yml
+/env/docker/app/tg_news_bot-0.0.1.jar
+/log/

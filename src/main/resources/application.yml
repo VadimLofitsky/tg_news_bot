@@ -1,1 +1,12 @@
+# Токен бота должен быть указан в resources/tg_bot.yml
+#telegram:
+#  bot:
+#    token: "telegram bot token here"
 
+selenium:
+  url: "http://${selenium.host:localhost}:${selenium.port:4321}/wd/hub"
+
+logging:
+  level:
+    okhttp3:
+      OkHttpClient: off

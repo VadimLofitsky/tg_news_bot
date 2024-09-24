@@ -1,0 +1,8 @@
+selenium:
+  host: ${SELENIUM_SERVICE_NAME:selenium}
+  port: 4321
+
+logging:
+  level:
+    okhttp3:
+      OkHttpClient: off
